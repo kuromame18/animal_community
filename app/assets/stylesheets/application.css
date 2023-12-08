@@ -20,11 +20,18 @@ header {
 
 main {
   padding-top: 80px;
+  height: 750px;
+}
+
+.field {
+  padding: 10px 0;
+}
+
+.action {
+  padding: 10px 0;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   padding: 20px;
   background-color: black;

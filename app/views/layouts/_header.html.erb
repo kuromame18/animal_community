@@ -32,11 +32,11 @@
           </li>
         <!-- 会員としてログインしている場合 -->
         <% elsif user_signed_in? %>
-          <div class="mt-3 mr-5" >
-            ようこそ、<%= current_customer.name %>さん!
+          <div class="mt-3 mr-5 text-light" >
+            ようこそ、<%= current_user.user_name %>さん!
           </div>
           <li class="nav-item mx-3">
-            <%= link_to 'マイページ', mypage_path, class: "nav-link text-light btn btn-outline-light" %>
+            <%= link_to 'マイページ', users_mypage_path, class: "nav-link text-light btn btn-outline-light" %>
           </li>
           <li class="nav-item mx-3">
             <%= link_to '投稿一覧', posts_path, class: "nav-link text-light btn btn-outline-light" %>

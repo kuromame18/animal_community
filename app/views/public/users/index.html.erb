@@ -1,2 +1,31 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 mx-auto">
+      <%= render 'public/users/sidebar' %>
+    </div>
+
+    <div class="col-md-8 mx-auto">
+      <h3 id="heading">会員一覧</h3>
+      <% @users.each do |users| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= image_tag users.get_profile_image(100,100) %></td>
+            <td><%= users.user_name %></td>
+            <td><%= link_to "詳細", user_path(users.id), class: "btn btn-success" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+     </div>
+  </div>
+</div>
+

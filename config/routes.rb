@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :users, only: [:index, :show, :edit, :update]
-    get 'users/mypage' => 'users#mypage',as: "mypage"
+    get 'users/mypage', to: 'users#mypage'
+    get 'users/mypage/edit', to: 'users#edit'
+    patch 'users/mypage', to: 'users#update'
+    resources :users, only: [:index, :show]
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
       resource :favorite, only: [:create, :destroy]
     end
