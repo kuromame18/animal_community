@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :user_name, presence: true
 
+  enum status: { active: 0, withdrawal: 1 }
+
   has_one_attached :profile_image
 
   def get_profile_image(width, height)

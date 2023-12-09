@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2023_12_08_081205) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "comment"
+    t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,13 +71,13 @@ ActiveRecord::Schema.define(version: 2023_12_08_081205) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -88,10 +88,10 @@ ActiveRecord::Schema.define(version: 2023_12_08_081205) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
-    t.string "user_name"
+    t.string "name", null: false
+    t.string "user_name", null: false
     t.string "introduction"
-    t.string "status"
+    t.string "status", default: "0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
