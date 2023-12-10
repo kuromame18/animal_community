@@ -1,2 +1,27 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h5 id="heading">投稿編集</h5>
+
+      <%= form_with model: @post do |f| %>
+
+      <div>
+        <%= f.label :Image %><br />
+        <%= f.file_field :post_image, placeholder: "Image", accept: "image/*" %>
+      </div>
+
+      <div>
+        <%= f.label :Title %>
+        <%= f.text_field :title, autofocus: true, size: 50 %>
+      </div>
+
+      <div>
+        <%= f.label :Content %>
+        <%= f.text_area :introduction, size: '50x5' %>
+      </div>
+
+      <%= f.submit "保存" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,10 @@
 ja:
   enums:
+    post:
+      post_status:
+        draft: "下書き"
+        inactive: "非公開"
+        active: "公開"
     errors:
       messages:
         not_saved: "エラーが発生したため、保存されませんでした。"

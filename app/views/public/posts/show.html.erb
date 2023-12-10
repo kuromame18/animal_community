@@ -1,2 +1,19 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h5 id="heading">会員情報</h5>
+      <%= image_tag @post.get_post_image(400,400) %>
+      <table>
+        <tr>
+          <th>Title</th>
+          <td><%= @post.title %></td>
+        </tr>
+        <tr>
+          <th>Content</th>
+          <td><%= @post.content %></td>
+        </tr>
+      </table>
+      <%= link_to "編集", edit_post_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
