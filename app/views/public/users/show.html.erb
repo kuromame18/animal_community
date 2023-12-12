@@ -1,13 +1,19 @@
-<h5 id="heading">会員情報</h5>
-<%= image_tag current_user.get_post_image(100,100) %>
-<table>
-  <tr>
-    <th>Name</th>
-    <td><%= current_user.user_name %></td>
-  </tr>
-  <tr>
-    <th>Introduction</th>
-    <td><%= current_user.introduction %></td>
-  </tr>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h5 id="heading">会員情報</h5>
+      <%= image_tag @user.get_profile_image(350,350) %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <td><%= @user.user_name %></td>
+        </tr>
+        <tr>
+          <th>Introduction</th>
+          <td><%= @user.introduction %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 

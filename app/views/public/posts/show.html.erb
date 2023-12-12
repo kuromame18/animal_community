@@ -12,6 +12,13 @@
           <th>Content</th>
           <td><%= @post.content %></td>
         </tr>
+        <tr>
+          <td>
+            <% @tags.each do |tag| %>
+              <%= tag.name %><%= "(#{tag.posts.count})" %>
+            <% end %>
+          </td>
+        </tr>
       </table>
       <%= link_to "編集", edit_post_path, class: "btn btn-success" %>
     </div>

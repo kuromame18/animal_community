@@ -20,6 +20,29 @@
         <%= f.text_area :introduction, size: '50x5' %>
       </div>
 
+      <div>
+        <%= f.label "Tag(,で区切ると複数タグ登録できます)" %>
+        <%= f.text_field :name, value: @tag %>
+      </div>
+
+      <div class="btn-group" role="group" id="buttonGroup">
+      <% if @post.persisted? %>
+        <% if @post.draft? %>
+          <%= f.submit '下書き保存', id: 'draftButton', name: 'draft', class: "draft-btn" %>
+          <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
+        <% elsif @post.inactive? %>
+          <%= f.submit '非公開にする', id: 'inactiveButton', name: 'inactive', class: "inactive-btn" %>
+          <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
+        <% else %>
+          <%= f.submit '非公開にする', id: 'inactiveButton', name: 'inactive', class: "inactive-btn" %>
+          <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
+        <% end %>
+      <% else %>
+          <%= f.submit '下書き保存', id: 'draftButton', name: 'draft', class: "draft-btn" %>
+          <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
+      <% end %>
+      </div>
+
       <%= f.submit "保存" %>
       <% end %>
     </div>
