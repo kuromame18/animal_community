@@ -5,9 +5,11 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
 
+  # 投稿のステータス
   enum post_status: { draft: 0, inactive: 1, active: 2 }
 
-   has_one_attached :post_image
+  # 画像の処理
+  has_one_attached :post_image
 
   def get_post_image(width, height)
     unless post_image.attached?
@@ -17,6 +19,7 @@ class Post < ApplicationRecord
     post_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  # タグの処理
   def save_tag(sent_tags)
     # タグの存在を確認->タグを配列として取得
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
@@ -25,13 +28,20 @@ class Post < ApplicationRecord
     # 送信されてきたタグから現在存在するタグを除いたタグ
     new_tags = sent_tags - current_tags
 
+    # old_tagを取り出し削除
     old_tags.each do |old|
-      self.tags.delete　Tag.find_by(name: old)
+      self.tags.delete Tag.find_by(name: old)
     end
 
+    # 新しいタグの保存
     new_tags.each do |new|
       new_post_tag = Tag.find_or_create_by(name: new)
       self.tags << new_post_tag
     end
+  end
+
+  # いいね機能
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
   end
 end
