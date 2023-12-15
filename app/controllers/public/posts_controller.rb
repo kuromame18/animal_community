@@ -15,18 +15,16 @@ class Public::PostsController < ApplicationController
       @post.post_status = :active
     end
 
-    ActiveRecord::Base.transaction do
-      if @post.save
-        if @post.draft?
-          @post.save_tag(tag_list)
-          redirect_to post_path(@post.id), notice: '下書きが保存されました。'
-        else
-          @post.save_tag(tag_list)
-          redirect_to post_path(@post.id), notice: '投稿が公開されました。'
-        end
+     if @post.save
+      if @post.draft?
+        @post.save_tag(tag_list)
+        redirect_to post_path(@post.id), notice: '下書きが保存されました。'
       else
-        render :new
+        @post.save_tag(tag_list)
+        redirect_to post_path(@post.id), notice: '投稿が公開されました。'
       end
+    else
+      render :new
     end
   end
 

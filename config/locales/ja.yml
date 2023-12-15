@@ -1,5 +1,13 @@
 ja:
   enums:
+    activerecord:
+      errors:
+        messages:
+          record_invalid: "バリデーションに失敗しました: %{errors}"
+          restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+          guest: "guest"
     post:
       post_status:
         draft: "下書き"

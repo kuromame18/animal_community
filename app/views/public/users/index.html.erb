@@ -7,7 +7,6 @@
 
     <div class="col-md-8 mx-auto">
       <h3 id="heading">会員一覧</h3>
-      <% @users.each do |users| %>
       <table class="table">
         <thead>
           <tr>
@@ -17,14 +16,15 @@
           </tr>
         </thead>
         <tbody>
+          <% @users.each do |users| %>
           <tr>
             <td><%= image_tag users.get_profile_image(100,100) %></td>
             <td><%= users.user_name %></td>
             <td><%= link_to "詳細", user_path(users.id), class: "btn btn-success" %></td>
           </tr>
+          <% end %>
         </tbody>
       </table>
-      <% end %>
      </div>
   </div>
 </div>
