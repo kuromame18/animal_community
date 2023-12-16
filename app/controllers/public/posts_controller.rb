@@ -9,6 +9,7 @@ class Public::PostsController < ApplicationController
 
     tag_list = params[:post][:name].split(',')
 
+    # ステータス更新
     if params[:draft].present?
       @post.post_status = :draft
     else
@@ -78,6 +79,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :post_status, :post_image)
+    params.require(:post).permit(:title, :content, :post_status, :post_image, :tag_name)
   end
 end

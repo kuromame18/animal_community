@@ -15,7 +15,9 @@
         <tr>
           <td>
             <% @tags.each do |tag| %>
-              <%= tag.name %>
+              <%= link_to tagsearches_search_path(content:@post.tag_name) do %>
+                <%= tag.name %>
+              <% end %>
             <% end %>
           </td>
         </tr>

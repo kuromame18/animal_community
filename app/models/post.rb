@@ -44,4 +44,9 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
+  # 検索機能
+  def self.tag_search(tag)
+    joins(:tags).where("tags.name LIKE ?", "%#{tag.downcase}%").order(:created_at)
+  end
 end

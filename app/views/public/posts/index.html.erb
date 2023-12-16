@@ -3,8 +3,10 @@
     <div class="col-md-7 mx-auto">
       <h5 id="heading">投稿一覧</h5>
       <% @tags.each do |tag| %>
-      <%= tag.name %>
-      <%= "(#{tag.posts.count})" %>
+      <%= link_to tagsearches_search_path(tag: tag.name) do %>
+        <%= tag.name %>
+        <%= "(#{tag.posts.count})" %>
+        <% end %>
       <% end %>
     </div>
   </div>

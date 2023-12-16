@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'
+    get 'tagsearches/search', to: 'tagsearches#search'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
