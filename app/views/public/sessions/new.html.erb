@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto">
-      <h2>ログイン</h2>
+      <h2 id="heading">ログイン</h2>
 
       <%= form_with model: @user, url: user_session_path do |f| %>
         <div class="field">
@@ -18,8 +18,14 @@
           <%= f.submit "Log in", class: "btn btn-primary" %>
         </div>
       <% end %>
-      <%= link_to "ゲストログイン（閲覧用）", public_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-      <%= render "public/shared/links" %>
+       <div>
+          <%= link_to "ゲストログイン（閲覧用）", public_guest_sign_in_path, method: :post %>
+        </div>
+      <div class="row">
+        <div class="col-md-10">
+          <p>すでに登録済みの方は、<%= render "public/shared/links" %>からログインして下さい。</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

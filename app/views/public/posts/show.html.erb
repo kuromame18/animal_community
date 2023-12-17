@@ -14,8 +14,9 @@
         </tr>
         <tr>
           <td>
+            <i class="fa-solid fa-tag"></i>
             <% @tags.each do |tag| %>
-              <%= link_to tagsearches_search_path(content:@post.tag_name) do %>
+              <%= link_to tagsearches_search_path(tag: tag.name) do %>
                 <%= tag.name %>
               <% end %>
             <% end %>
@@ -27,7 +28,9 @@
           </td>
         </tr>
       </table>
-      <%= link_to "編集", edit_post_path, class: "btn btn-success" %>
+      <% if current_user == @post.user %>
+        <%= link_to "編集", edit_post_path, class: "btn btn-success" %>
+      <% end %>
       <div>
         <p>コメント件数：<%= @post.comments.count %></p>
         <% @post.comments.each do |comment| %>

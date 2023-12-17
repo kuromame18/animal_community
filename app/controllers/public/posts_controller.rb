@@ -30,9 +30,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    post = Post.where(post_status: 2)
-    @posts = post.all
-    @tags = Tag.all
+    @posts = Post.where(post_status: 2).page(params[:page]).per(8)
+    @tags = Tag.joins(:posts).group('tags.id').order('COUNT(tags.id) DESC').limit(8)
   end
 
   def show
@@ -79,6 +78,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :post_status, :post_image, :tag_name)
+    params.require(:post).permit(:title, :content, :post_status, :post_image, name: [])
   end
 end

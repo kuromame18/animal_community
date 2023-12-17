@@ -19,6 +19,7 @@ class Public::SessionsController < Devise::SessionsController
   # end
   def guest_sign_in
     user = User.guest
+     puts "Guest User ID: #{user.id}" # デバッグ用ログ
     sign_in user
     redirect_to root_path, notice: "guestuserでログインしました。"
   end

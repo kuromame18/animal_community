@@ -37,6 +37,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  
+  def after_sign_up_path_for(resource)
+    flash[:notice] = "ようこそ！アニマルコミュニティへ！"
+    customers_path
+  end
 
   protected
 
