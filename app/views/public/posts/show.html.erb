@@ -1,17 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 mx-auto">
-      <h5 id="heading">会員情報</h5>
+      <h4 id="heading">投稿詳細</h4>
+      <div class="post-image">
       <%= image_tag @post.get_post_image(400,400) %>
+      </div>
+      <% if current_user == @post.user %>
+        <%= link_to "編集", edit_post_path, class: "btn btn-success" %>
+      <% end %>
+      <h5 class="post-title">Title</h5><br />
+      <p><%= @post.title %></p>
+
+      <h5 class="post-content">Content</h5><br />
+      <p><%= @post.content %></p>
+
       <table>
-        <tr>
-          <th>Title</th>
-          <td><%= @post.title %></td>
-        </tr>
-        <tr>
-          <th>Content</th>
-          <td><%= @post.content %></td>
-        </tr>
         <tr>
           <td>
             <i class="fa-solid fa-tag"></i>
@@ -24,26 +27,18 @@
         </tr>
         <tr>
           <td id="favorite_btn_<%= @post.id %>" >
-            <%= render 'public/favorites/btn', post:@post %>
+            <%= render 'public/favorites/btn', post: @post %>
           </td>
         </tr>
       </table>
-      <% if current_user == @post.user %>
-        <%= link_to "編集", edit_post_path, class: "btn btn-success" %>
-      <% end %>
-      <div>
-        <p>コメント件数：<%= @post.comments.count %></p>
-        <% @post.comments.each do |comment| %>
-          <p><%= image_tag comment.user.get_profile_image(100,100) %></p>
-          <%= comment.user.name %>
-          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-        <% end %>
+      <div id="comment_counter">
+        <%= render 'public/comments/counter', post: @post %>
+      </div>
+      <div id="comment_index">
+        <%= render 'public/comments/index', post: @post %>
       </div>
       <div>
-        <%= form_with model: [@post, @comment] do |f| %>
-          <%= f.text_area :comment, placeholder: "コメントをここに", size: '50x5' %>
-          <%= f.submit "送信する" %>
-        <% end %>
+        <%= render 'public/comments/form', post: @post, comment: @comment %>
       </div>
     </div>
   </div>

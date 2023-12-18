@@ -21,8 +21,14 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'users/mypage', to: 'users#mypage'
     get 'users/mypage/edit', to: 'users#edit'
+    get 'users/inactive', to: 'users#inactive'
+    get 'users/draft', to: 'users#draft'
     patch 'users/mypage', to: 'users#update'
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show] do
+      member do
+        get :favorites_posts
+      end
+    end
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
       resource :favorite, only: [:create, :destroy]
       resources :comments, only: [:create]

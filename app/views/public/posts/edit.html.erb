@@ -17,7 +17,7 @@
 
       <div>
         <%= f.label :Content %>
-        <%= f.text_area :introduction, size: '50x5' %>
+        <%= f.text_area :content, size: '50x5' %>
       </div>
 
       <div>
@@ -42,8 +42,6 @@
           <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
       <% end %>
       </div>
-
-      <%= f.submit "保存" %>
       <% end %>
     </div>
   </div>

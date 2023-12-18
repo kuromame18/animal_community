@@ -1,2 +1,22 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <%= render 'public/users/user_show' %>
+    </div>
+    <div class="col-md-8 mx-auto">
+      <%= link_to "登録情報編集", edit_admin_user_path(@user.id), class: "btn btn-success" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h4 id="heading">投稿一覧</h4>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <%= render "admin/users/mypost", posts: @posts %>
+    </div>
+  </div>
+</div>

@@ -46,6 +46,14 @@ class Post < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+  def self.favorites_posts(user, page, per_page) # モデル内での操作を開始
+  includes(:favorites) # favorites テーブルを結合
+    .where(favorites: { user_id: user.id }) # ユーザーがいいねしたレコードを絞り込み
+    .order(created_at: :desc) # 投稿を作成日時の降順でソート
+    .page(page) # ページネーションのため、指定ページに表示するデータを選択
+    .per(per_page) # ページごとのデータ数を指定
+  end
+
   # 検索機能
   def self.tag_search(tag)
     joins(:tags).where("tags.name LIKE ?", "%#{tag.downcase}%").order(:created_at)

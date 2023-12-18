@@ -68,7 +68,7 @@ footer {
 
 /*アバウトページ*/
 .about-background {
-  
+
   background-size: 800px auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -86,4 +86,35 @@ footer {
   width: 260px;
   height: 200px;
   object-fit: cover;
+}
+
+/*投稿詳細*/
+.post-image {
+  margin-bottom: 10px;
+}
+
+.post-comment {
+  padding: 5px;
+}
+
+/*投稿ステータス更新*/
+.draft-btn {
+  margin: 5px;
+  color: white;
+  background-color: #1E90FF;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  margin: 5px;
+  color: white;
+  background-color: #32CD32;
+  border-radius: 5px;
+}
+
+.inactive-btn {
+  margin: 5px;
+  color: white;
+  background-color: #808080;
+  border-radius: 5px;
 }
