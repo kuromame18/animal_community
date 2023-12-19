@@ -30,7 +30,7 @@ class User < ApplicationRecord
   enum status: { active: 0, withdrawal: 1 }
 
   def active_for_authentication?
-    super && (status == 'active')
+    super && (status == User.statuses[:active])
   end
 
   # プロフィール画像
