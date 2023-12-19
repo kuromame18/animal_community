@@ -29,10 +29,6 @@ class User < ApplicationRecord
   # ユーザーステータス
   enum status: { active: 0, withdrawal: 1 }
 
-  def active_for_authentication?
-    super && (status == User.statuses[:active])
-  end
-
   # プロフィール画像
   has_one_attached :profile_image
 

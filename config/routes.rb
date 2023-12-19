@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :users, only: [:show, :edit, :update]
-    resources :posts, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :posts, only: [:index, :show, :update] do
+      resources :comments, only: [:create, :destroy]
+    end
     root to: 'homes#top'
   end
 
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
     end
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
       resource :favorite, only: [:create, :destroy]
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
     end
     root to: 'homes#top'
     get 'about' => 'homes#about', as: 'about'

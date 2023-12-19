@@ -19,13 +19,16 @@ class Public::PostsController < ApplicationController
      if @post.save
       if @post.draft?
         @post.save_tag(tag_list)
-        redirect_to post_path(@post.id), notice: '下書きが保存されました。'
+        flash[:notice] = '下書きが保存されました。'
+        redirect_to post_path(@post.id)
       else
         @post.save_tag(tag_list)
-        redirect_to post_path(@post.id), notice: '投稿が公開されました。'
+        flash[:notice] = '投稿が公開されました。'
+        redirect_to post_path(@post.id)
       end
     else
-      render :new
+      flash[:alert] = '投稿に失敗しました。必要事項を入力して下さい。'
+      redirect_to new_post_path
     end
   end
 

@@ -1,2 +1,40 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h4 id="heading">投稿詳細</h4>
+      <div class="post-image">
+      <%= image_tag @post.get_post_image(400,400) %>
+      </div>
+      <h5 class="post-title">Title</h5><br />
+      <p><%= @post.title %></p>
+
+      <h5 class="post-content">Content</h5><br />
+      <p><%= @post.content %></p>
+
+      <table>
+        <tr>
+          <td>
+            <i class="fa-solid fa-tag"></i>
+            <% @tags.each do |tag| %>
+              <%= link_to tagsearches_search_path(tag: tag.name) do %>
+                <%= tag.name %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td id="favorite_btn_<%= @post.id %>" >
+            <%= render 'public/favorites/btn', post: @post %>
+          </td>
+        </tr>
+      </table>
+      <div id="comment_counter">
+        <%= render 'public/comments/counter', post: @post %>
+      </div>
+      <div id="comment_index">
+        <%= render 'public/comments/index', post: @post %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,6 +1,10 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
 
+  def index
+     @users = User.all.where(status: 1).page(params[:page]).per(8)
+  end
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.where(post_status: 2).page(params[:page]).per(8)
