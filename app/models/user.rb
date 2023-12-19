@@ -18,6 +18,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "guest"
+      user.status = :active
     end
   end
 
@@ -27,6 +28,10 @@ class User < ApplicationRecord
 
   # ユーザーステータス
   enum status: { active: 0, withdrawal: 1 }
+
+  def active_for_authentication?
+    super && (status == 'active')
+  end
 
   # プロフィール画像
   has_one_attached :profile_image

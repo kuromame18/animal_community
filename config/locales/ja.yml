@@ -13,6 +13,10 @@ ja:
         draft: "下書き"
         inactive: "非公開"
         active: "公開"
+    user:
+      status:
+        active: "有効"
+        withdrawal: "退会"
     errors:
       messages:
         not_saved: "エラーが発生したため、保存されませんでした。"

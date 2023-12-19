@@ -29,6 +29,13 @@
         <%= f.label :Introduction %><br />
         <%= f.text_area :introduction, size: '50x5' %>
       </div>
+
+      <div class="button">
+        <%= f.radio_button :status, User.statuses.key(0) %>
+        <%= f.label :status_active, User.statuses_i18n[:active] %>
+        <%= f.radio_button :status, User.statuses.key(1) %>
+        <%= f.label :status_withdrawal, User.statuses_i18n[:withdrawal] %>
+      </div>
       <%= f.submit "保存", class: "btn btn-success" %>
       <% end %>
     </div>

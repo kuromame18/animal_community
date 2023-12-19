@@ -23,6 +23,7 @@ class Admin::UsersController < ApplicationController
                                  :email,
                                  :user_name,
                                  :introduction,
-                                 :profile_image)
+                                 :profile_image,
+                                 :status)
   end
 end
