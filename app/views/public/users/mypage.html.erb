@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h3 id="heading">マイページ</h3>
+
+      <table class="table">
+        <tr>
+          <th>Name（氏名）</th>
+          <td><%= current_user.name %></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <th>Profile Image</th>
+          <td><%= image_tag current_user.get_profile_image(150,150) %></td>
+        </tr>
+        <tr>
+          <th>UserName</th>
+          <td><%= current_user.user_name %></td>
+        </tr>
+        <tr>
+          <th>Introduction</th>
+          <td><%= current_user.introduction %></td>
+        </tr>
+      </table>
+
+      <% unless @user.guest_user? %>
+      <div class="button">
+        <%= link_to "編集", users_mypage_edit_path, class: "btn btn-success" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

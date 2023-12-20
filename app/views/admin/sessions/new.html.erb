@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h2 id="heading">ログイン</h2>
+
+      <%= form_with(model: resource, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :Email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 60 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :Password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", size: 60 %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Log in", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

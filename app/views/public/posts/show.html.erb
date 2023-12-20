@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h4 id="heading">投稿詳細</h4>
+      <strong>ユーザー名</strong>
+      <%= link_to user_path(@post.id) do %>
+        <%= @post.user.user_name %>
+      <% end %>
+      <div class="post-image">
+      <%= image_tag @post.get_post_image(400,400) %>
+      </div>
+      <% if current_user == @post.user %>
+        <%= link_to "編集", edit_post_path, class: "btn btn-success" %>
+      <% end %>
+      <h5 class="post-title">Title</h5><br />
+      <p><%= @post.title %></p>
+
+      <h5 class="post-content">Content</h5><br />
+      <p><%= @post.content %></p>
+
+      <table>
+        <tr>
+          <td>
+            <i class="fa-solid fa-tag"></i>
+            <% @tags.each do |tag| %>
+              <%= link_to tagsearches_search_path(tag: tag.name) do %>
+                <%= tag.name %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td id="favorite_btn_<%= @post.id %>" >
+            <%= render 'public/favorites/btn', post: @post %>
+          </td>
+        </tr>
+      </table>
+      <div id="comment_counter">
+        <%= render 'public/comments/counter', post: @post %>
+      </div>
+      <div id="comment_index">
+        <%= render 'public/comments/index', post: @post %>
+      </div>
+      <% if current_user %>
+      <div>
+        <%= render 'public/comments/form', post: @post, comment: @comment %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

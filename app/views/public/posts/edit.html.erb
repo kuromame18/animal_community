@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h5 id="heading">投稿編集</h5>
+
+      <%= form_with model: @post do |f| %>
+
+      <div>
+        <%= f.label :Image %><br />
+        <%= f.file_field :post_image, placeholder: "Image", accept: "image/*" %>
+      </div>
+
+      <div>
+        <%= f.label :Title %>
+        <%= f.text_field :title, autofocus: true, size: 50 %>
+      </div>
+
+      <div>
+        <%= f.label :Content %>
+        <%= f.text_area :content, size: '50x5' %>
+      </div>
+
+      <div>
+        <%= f.label "Tag(,で区切ると複数タグ登録できます)" %>
+        <%= f.text_field :name, value: @tag %>
+      </div>
+
+      <div class="btn-group" role="group" id="buttonGroup">
+      <% if @post.persisted? %>
+        <% if @post.draft? %>
+          <%= f.submit '下書き保存', id: 'draftButton', name: 'draft', class: "draft-btn" %>
+          <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
+        <% elsif @post.inactive? %>
+          <%= f.submit '非公開にする', id: 'inactiveButton', name: 'inactive', class: "inactive-btn" %>
+          <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
+        <% else %>
+          <%= f.submit '非公開にする', id: 'inactiveButton', name: 'inactive', class: "inactive-btn" %>
+          <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
+        <% end %>
+      <% else %>
+          <%= f.submit '下書き保存', id: 'draftButton', name: 'draft', class: "draft-btn" %>
+          <%= f.submit '公開する', id: 'activeButton', name: 'active', class: "submit-btn" %>
+      <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

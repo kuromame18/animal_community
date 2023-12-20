@@ -1,0 +1,23 @@
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-8">
+      <%= render 'public/users/user_show' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9 mx-auto">
+      <h4 id="heading">投稿一覧</h4>
+      <% if current_user %>
+        <%= link_to "下書き一覧", users_draft_path %> |
+        <%= link_to "非公開一覧", users_inactive_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <%= render "public/users/mypost", posts: @posts %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+     <div class="col-md-3">
+      <h4 id="heading">会員情報</h4>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag current_user.get_profile_image(250,250) %>
+    </div>
+    <div class="col-md-4 offset-1">
+      <p>Name</p>
+      <p><%= current_user.user_name %></p>
+      <p>Introduction</p>
+      <p><%= current_user.introduction %></p>
+      <% unless current_user.guest_user? %>
+        <%= link_to "投稿", new_post_path, class: "btn btn-success" %>
+        <%= link_to "いいねした投稿", favorites_posts_user_path(current_user), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
