@@ -1,6 +1,9 @@
-<h5 id=heading><%= @model %>検索結果 "<%= @word %>"</h5>
 <div class="container">
   <div class="row">
+    <div class="col-md-5">
+      <h5 id=heading><%= @model %>検索結果 "<%= @word %>"</h5>
+    </div>
+  </div>
       <% @posts.each do |post| %>
       <div class="col-md-3 mb-4">
         <div class="card">
@@ -20,5 +23,6 @@
         </div>
       </div>
       <% end %>
+    </div>
   </div>
 </div>

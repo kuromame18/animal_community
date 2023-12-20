@@ -2,6 +2,10 @@
   <div class="row">
     <div class="col-md-5 mx-auto">
       <h4 id="heading">投稿詳細</h4>
+      <strong>ユーザー名</strong>
+      <%= link_to user_path(@post.id) do %>
+        <%= @post.user.user_name %>
+      <% end %>
       <div class="post-image">
       <%= image_tag @post.get_post_image(400,400) %>
       </div>
@@ -37,9 +41,11 @@
       <div id="comment_index">
         <%= render 'public/comments/index', post: @post %>
       </div>
+      <% if current_user %>
       <div>
         <%= render 'public/comments/form', post: @post, comment: @comment %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+   before_action :authenticate_user!, except: [:index, :show]
   def new
     @post = Post.new
   end
@@ -81,6 +82,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :post_status, :post_image, :tag_name)
+    params.require(:post).permit(:title, :content, :post_status, :post_image, :name)
   end
 end

@@ -3,7 +3,8 @@
     <div class="col-md-5 mx-auto">
       <h4 id="heading">投稿詳細</h4>
       <div class="post-image">
-      <%= image_tag @post.get_post_image(400,400) %>
+        <%= image_tag @post.get_post_image(400,400) %>
+        <%= link_to "編集", edit_admin_post_path, class: "btn btn-success" %>
       </div>
       <h5 class="post-title">Title</h5><br />
       <p><%= @post.title %></p>

@@ -14,7 +14,7 @@
       <p><%= current_user.user_name %></p>
       <p>Introduction</p>
       <p><%= current_user.introduction %></p>
-      <% if current_user %>
+      <% unless current_user.guest_user? %>
         <%= link_to "投稿", new_post_path, class: "btn btn-success" %>
         <%= link_to "いいねした投稿", favorites_posts_user_path(current_user), class: "btn btn-primary" %>
       <% end %>

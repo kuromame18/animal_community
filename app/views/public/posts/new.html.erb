@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 mx-auto">
+      <%= render 'layouts/error_messages', obj: @post %>
       <h3 id="heading">新規投稿</h3>
       <%= form_with model: @post do |f| %>
         <div>

@@ -1,0 +1,10 @@
+<% if obj.present? && obj.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <strong><%= pluralize(obj.errors.count, "error") %> 件のエラーが発生しました。</strong>
+    <ul>
+      <% obj.errors.full_messages.each do |message|  %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

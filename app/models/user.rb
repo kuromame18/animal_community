@@ -18,7 +18,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "guest"
-      user.status = :active
+      user.user_name = "ゲスト"
     end
   end
 
