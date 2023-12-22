@@ -45,7 +45,7 @@ footer {
 
 /*トップページ*/
 .top-background {
-  background-image: url('/assets/pauline-loroy-U3aF7hgUSrk-unsplash.jpg');
+  background-image: url("/assets/pauline-loroy-U3aF7hgUSrk-unsplash.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

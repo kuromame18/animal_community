@@ -1,12 +1,14 @@
 <% post.comments.each do |comment| %>
   <div class="post-comment">
-    <%= image_tag comment.user.get_profile_image(75,75) %>
-    <%= comment.comment %>
-    <% if user_signed_in? && (current_user == comment.user || current_user.admin?) %>
-      <%= link_to 'コメントを削除', post_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    <div class="comment_image"><%= image_tag comment.user.get_profile_image(75,75) %></div>
+    <p>
+        (<%= link_to user_path(comment.user) do %>
+          <%= comment.user.name %>
+        <% end %>）
+    </p>
+    <p><%= comment.comment %></p>
+    <% if current_user == comment.user %>
+      <%= link_to '削除', post_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
     <% end %><br />
-    (<%= link_to user_path(comment.user) do %>
-        <%= comment.user.name %>
-    <% end %>)
   </div>
 <% end %>

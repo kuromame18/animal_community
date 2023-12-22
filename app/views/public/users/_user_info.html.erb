@@ -9,10 +9,10 @@
     <div class="col-md-4">
       <%= image_tag current_user.get_profile_image(250,250) %>
     </div>
-    <div class="col-md-4 offset-1">
-      <p>Name</p>
+    <div class="col-md-7 offset-1">
+      <p><strong>Name</strong></p>
       <p><%= current_user.user_name %></p>
-      <p>Introduction</p>
+      <p><strong>Introduction</strong></p>
       <p><%= current_user.introduction %></p>
       <% unless current_user.guest_user? %>
         <%= link_to "投稿", new_post_path, class: "btn btn-success" %>

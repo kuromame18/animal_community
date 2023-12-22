@@ -1,5 +1,7 @@
 class Public::PostsController < ApplicationController
-   before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :ensure_post_owner, only: [:edit, :update, :destroy]
+
   def new
     @post = Post.new
   end
@@ -83,5 +85,12 @@ class Public::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :post_status, :post_image, :name)
+  end
+
+  def ensure_post_owner
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to root_path, alert: "変更はログインしたユーザーのみが可能です。"
+    end
   end
 end

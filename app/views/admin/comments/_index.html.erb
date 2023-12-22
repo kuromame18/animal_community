@@ -1,0 +1,12 @@
+<% post.comments.each do |comment| %>
+  <div class="post-comment">
+    <div class="comment_image"><%= image_tag comment.user.get_profile_image(75,75) %></div>
+    <p>
+      （<%= link_to user_path(comment.user) do %>
+          <%= comment.user.name %>
+        <% end %>）
+    </p>
+    <p><%= comment.comment %></P>
+      <%= link_to '削除', post_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %><br />
+  </div>
+<% end %>

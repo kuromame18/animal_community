@@ -1,5 +1,5 @@
-class Public::FavoritesController < ApplicationController
-before_action :authenticate_user!
+class Admin::FavoritesController < ApplicationController
+  before_action :authenticate_admin!
 
   def create
     @post = Post.find(params[:post_id])

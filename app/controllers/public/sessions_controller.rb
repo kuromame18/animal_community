@@ -2,7 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  # before_action :user_state, only: [:create]
+  before_action :user_state, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -33,8 +33,10 @@ class Public::SessionsController < Devise::SessionsController
 
   def user_state
     user = User.find_by(email: params[:user][:email])
+    Rails.logger.info "User: #{user.inspect}" # この行を追加
     return if user.nil?
-    if user.status
+    Rails.logger.info "User Status: #{user.status}"
+    if user.active?
       return unless user.valid_password?(params[:user][:password])
     else
       flash[:alert] = "退会済みのため、新規登録をお願い致します"
