@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-     <div class="col-md-4">
+     <div class="col-md-3">
       <h4 id="heading">会員情報</h4>
     </div>
   </div>
@@ -11,16 +11,9 @@
     </div>
     <div class="col-md-7 offset-1">
       <p>Name</p>
-      <p>
-        <%= link_to user_path(@user) do %>
-          <%= @user.user_name %>
-        <% end %>
-      </p>
+      <p><%= @user.user_name %></p>
       <p>Introduction</p>
       <p><%= @user.introduction %></p>
-      <% unless current_user.guest_user? %>
-        <%= link_to "投稿", new_post_path, class: "btn btn-success" %>
-      <% end %>
     </div>
   </div>
 </div>

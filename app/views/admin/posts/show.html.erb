@@ -25,15 +25,15 @@
         </tr>
         <tr>
           <td id="favorite_btn_<%= @post.id %>" >
-            <%= render 'public/favorites/btn', post: @post %>
+            <%= render 'admin/favorites/btn', post: @post %>
           </td>
         </tr>
       </table>
       <div id="comment_counter">
-        <%= render 'public/comments/counter', post: @post %>
+        <%= render 'admin/comments/counter', post: @post %>
       </div>
       <div id="comment_index">
-        <%= render 'public/comments/index', post: @post %>
+        <%= render 'admin/comments/index', post: @post %>
       </div>
     </div>
   </div>

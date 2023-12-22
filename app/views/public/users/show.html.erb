@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-9 mx-auto">
       <h4 id="heading">投稿一覧</h4>
-      <% if current_user %>
+      <% unless current_user.guest_user? %>
         <%= link_to "下書き一覧", users_draft_path %> |
         <%= link_to "非公開一覧", users_inactive_path %>
       <% end %>
