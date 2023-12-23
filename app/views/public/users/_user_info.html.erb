@@ -7,11 +7,15 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <%= image_tag current_user.get_profile_image(250,250) %>
+      <%= user_image(current_user, size = "250x200") %>
     </div>
     <div class="col-md-7 offset-1">
       <p><strong>Name</strong></p>
-      <p><%= current_user.user_name %></p>
+      <p>
+        <%= link_to user_path(user) do %>
+          <%= current_user.user_name %>
+        <% end %>
+      </p>
       <p><strong>Introduction</strong></p>
       <p><%= current_user.introduction %></p>
       <% unless current_user.guest_user? %>

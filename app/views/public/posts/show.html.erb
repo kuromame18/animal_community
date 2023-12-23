@@ -2,16 +2,28 @@
   <div class="row">
     <div class="col-md-5 mx-auto">
       <h4 id="heading">投稿詳細</h4>
+
+      <% if current_user == @post.user %>
+      <div class="action">
+        <%= link_to "投稿を削除", post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+      </div>
+      <% end %>
+
       <strong>ユーザー名</strong>
-      <%= link_to user_path(@post.id) do %>
+      <%= link_to user_path(@post.user) do %>
         <%= @post.user.user_name %>
       <% end %>
+
       <div class="post-image">
-      <%= image_tag @post.get_post_image(400,400) %>
+      <%= post_image(@post, size = "435x350") %>
       </div>
+
       <% if current_user == @post.user %>
+      <div class="action">
         <%= link_to "編集", edit_post_path, class: "btn btn-success" %>
+      </div>
       <% end %>
+
       <h5 class="post-title">Title</h5><br />
       <p><%= @post.title %></p>
 

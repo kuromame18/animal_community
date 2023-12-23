@@ -14,10 +14,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:index, :show, :edit, :update] do
+    resources :posts, only: [:index, :show, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
     end
     root to: 'homes#top'
+    get 'tagsearches/search', to: 'tagsearches#search'
   end
 
   scope module: :public do
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
     get 'users/inactive', to: 'users#inactive'
     get 'users/draft', to: 'users#draft'
     patch 'users/mypage', to: 'users#update'
+    get 'users/confirm' => 'users#confirm'
+    patch 'users/withdrawal' => 'users#withdrawal'
     resources :users, only: [:index, :show] do
       member do
         get :favorites_posts

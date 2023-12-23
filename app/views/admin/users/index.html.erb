@@ -14,7 +14,7 @@
         <tbody>
           <% @users.each do |user| %>
           <tr>
-            <td><%= image_tag user.get_profile_image(100,100) %></td>
+            <td><%= user_image(user, size = "150x100") %></td>
             <td><%= user.user_name %></td>
             <td><%= link_to "詳細", admin_user_path(user.id), class: "btn btn-success" %></td>
           </tr>

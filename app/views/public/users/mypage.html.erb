@@ -14,7 +14,7 @@
         </tr>
         <tr>
           <th width="200">Profile Image</th>
-          <td><%= image_tag current_user.get_profile_image(150,150) %></td>
+          <td><%= user_image(current_user, size = "200x150") %></td>
         </tr>
         <tr>
           <th width="200">UserName</th>

@@ -38,6 +38,15 @@ class Public::UsersController < ApplicationController
     @favorites_posts = Post.favorites_posts(current_user, params[:page], 8)
   end
 
+  def confirm
+  end
+
+  def withdrawal
+    current_user.update(status: 1)
+    reset_session
+    redirect_to root_path
+  end
+
   private
 
   def user_params

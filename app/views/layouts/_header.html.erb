@@ -62,9 +62,15 @@
             <%= link_to 'ログイン', new_user_session_path, class: "nav-link text-light btn btn-outline-light" %>
           </li>
         <% end %>
+        <% if admin_signed_in? %>
+          <li>
+            <%= render 'admin/tagsearches/tagsearch' %>
+          </li>
+        <% else %>
           <li>
             <%= render 'public/tagsearches/tagsearch' %>
           </li>
+        <% end %>
       </ul>
       </div>
       <div class="row" style="display:flex; justify-content:flex-end; margin-top:5px; margin-right: 3px;">

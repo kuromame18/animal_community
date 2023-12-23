@@ -4,7 +4,7 @@
       <% posts.each do |post| %>
         <div class="col-md-3 mb-4">
           <div class="card">
-            <%= image_tag post.get_post_image(300, 300), class: "card-img-top img-fluid" %>
+            <%= post_image(post, size = "253x200") %>
             <div class="card-body">
               <div class="card-title">
                 <strong>Title</strong><br />
