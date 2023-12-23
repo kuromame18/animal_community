@@ -29,7 +29,12 @@
         <%= f.label :Introduction %><br />
         <%= f.text_area :introduction, size: '50x5' %>
       </div>
-      <%= f.submit "保存", class: "btn btn-success" %>
+      <div class="action">
+        <%= f.submit "保存", class: "btn btn-success" %>
+      </div>
+      <div class="action">
+        <%= link_to "退会する", users_confirm_path, class: "btn btn-danger" %>
+      </div>
       <% end %>
     </div>
   </div>

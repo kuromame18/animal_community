@@ -1,4 +1,4 @@
-class Public::TagsearchesController < ApplicationController
+class Admin::TagsearchesController < ApplicationController
   def search
     @word = params[:tag]
     @posts = Post.where(post_status: 2).tag_search(@word)

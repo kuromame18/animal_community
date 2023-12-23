@@ -81,6 +81,13 @@ class Public::PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = "投稿の削除に成功しました"
+    redirect_to posts_path
+  end
+
   private
 
   def post_params
