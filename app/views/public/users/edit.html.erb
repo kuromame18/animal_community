@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 mx-auto">
-      <h3 id=heading>登録情報変更</h3>
+      <h4 id=heading><i class="fa-solid fa-paw"></i>登録情報変更<i class="fa-solid fa-paw"></i></h4>
 
       <%= form_with model: @user, url: users_mypage_path do |f| %>
 
@@ -31,8 +31,6 @@
       </div>
       <div class="action">
         <%= f.submit "保存", class: "btn btn-success" %>
-      </div>
-      <div class="action">
         <%= link_to "退会する", users_confirm_path, class: "btn btn-danger" %>
       </div>
       <% end %>

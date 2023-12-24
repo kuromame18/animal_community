@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-     <div class="col-md-3">
-      <h4 id="heading">会員情報</h4>
+     <div class="col-md-4">
+      <h4 id="heading"><i class="fa-solid fa-paw"></i>会員情報<i class="fa-solid fa-paw"></i></h4>
     </div>
   </div>
   </div>
@@ -10,13 +10,13 @@
       <%= user_image(current_user, size = "250x200") %>
     </div>
     <div class="col-md-7 offset-1">
-      <p><strong>Name</strong></p>
+      <p><strong><i class="fa-solid fa-paw"></i>Name</strong></p>
       <p>
         <%= link_to user_path(user) do %>
           <%= current_user.user_name %>
         <% end %>
       </p>
-      <p><strong>Introduction</strong></p>
+      <p><strong><i class="fa-solid fa-paw"></i>Introduction</strong></p>
       <p><%= current_user.introduction %></p>
       <% unless current_user.guest_user? %>
         <%= link_to "投稿", new_post_path, class: "btn btn-success" %>

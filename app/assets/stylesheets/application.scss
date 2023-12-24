@@ -29,7 +29,7 @@ header {
 }
 
 main {
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 .field {
@@ -108,8 +108,8 @@ footer {
   margin-bottom: 10px;
 }
 
-.post-comment {
-  padding: 5px;
+#comment_index {
+  padding: 10px 10px;
 }
 
 /*投稿ステータス更新*/
@@ -133,3 +133,4 @@ footer {
   background-color: #808080;
   border-radius: 5px;
 }
+

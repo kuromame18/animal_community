@@ -1,12 +1,18 @@
-<% post.comments.each do |comment| %>
-  <div class="post-comment">
-    <div class="comment_image"><%= user_image(comment.user, size = "75x75") %></div>
-    <p>
-      （<%= link_to user_path(comment.user) do %>
-          <%= comment.user.name %>
-        <% end %>）
-    </p>
-    <p><%= comment.comment %></P>
-      <%= link_to '削除', admin_post_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %><br />
+<div class="container">
+  <% post.comments.each do |comment| %>
+  <div class="row">
+    <div class="col-4">
+      <div class="comment_image"><%= user_image(comment.user, size = "75x75") %></div>
+
+      (<%= link_to admin_user_path(comment.user) do %>
+        <%= comment.user.name %>
+      <% end %>）
+
+      <%= link_to '削除', admin_post_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+    </div>
+    <div class="col-8">
+      <p><%= comment.comment %></p>
+    </div>
   </div>
-<% end %>
+  <% end %>
+</div>
