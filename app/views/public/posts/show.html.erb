@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 mx-auto">
-      <h4 id="heading">投稿詳細</h4>
+      <h4 id="heading"><i class="fa-solid fa-paw"></i>投稿詳細<i class="fa-solid fa-paw"></i></h4>
 
       <% if current_user == @post.user %>
       <div class="action">
@@ -9,7 +9,7 @@
       </div>
       <% end %>
 
-      <strong>ユーザー名</strong>
+      <strong><i class="fa-solid fa-paw"></i>ユーザー名</strong>
       <%= link_to user_path(@post.user) do %>
         <%= @post.user.user_name %>
       <% end %>
@@ -24,10 +24,10 @@
       </div>
       <% end %>
 
-      <h5 class="post-title">Title</h5><br />
+      <h5 class="post-title"><i class="fa-solid fa-paw"></i>Title</h5><br />
       <p><%= @post.title %></p>
 
-      <h5 class="post-content">Content</h5><br />
+      <h5 class="post-content"><i class="fa-solid fa-paw"></i>Content</h5><br />
       <p><%= @post.content %></p>
 
       <table>

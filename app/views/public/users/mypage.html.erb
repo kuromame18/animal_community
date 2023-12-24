@@ -1,27 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <h3 id="heading">マイページ</h3>
+      <h3 id="heading"><i class="fa-solid fa-paw"></i>マイページ<i class="fa-solid fa-paw"></i></h3>
 
       <table class="table">
         <tr>
-          <th width="200">Name（氏名）</th>
+          <th width="200"><i class="fa-solid fa-paw"></i>Name（氏名）</th>
           <td><%= current_user.name %></td>
         </tr>
         <tr>
-          <th width="200">Email</th>
+          <th width="200"><i class="fa-solid fa-paw"></i>Email</th>
           <td><%= current_user.email %></td>
         </tr>
         <tr>
-          <th width="200">Profile Image</th>
+          <th width="200"><i class="fa-solid fa-paw"></i>Profile Image</th>
           <td><%= user_image(current_user, size = "200x150") %></td>
         </tr>
         <tr>
-          <th width="200">UserName</th>
+          <th width="200"><i class="fa-solid fa-paw"></i>UserName</th>
           <td><%= current_user.user_name %></td>
         </tr>
         <tr>
-          <th width="200">Introduction</th>
+          <th width="200"><i class="fa-solid fa-paw"></i>Introduction</th>
           <td><%= current_user.introduction %></td>
         </tr>
       </table>

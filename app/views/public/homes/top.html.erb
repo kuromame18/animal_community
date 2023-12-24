@@ -4,18 +4,18 @@
   </div>
 
   <div class="row">
-    <h4 id="top-newposts">新着</h4>
+    <h4 id="top-newposts"><i class="fa-solid fa-dog fa-bounce">新着投稿</i></h4>
   </div>
   <div class="row">
     <% @posts.each do |post| %>
-    <div class="col-md-3 mb-4">
+    <div class="col-3 mb-4">
       <div class="card">
         <%= post_image(post, size = "253x200") %>
         <div class="card-body">
           <div class="card-title">
-            Title<br />
+            <strong><i class="fa-solid fa-paw"></i>Title</strong><br />
             <%= post.title %><br />
-            Tag<br />
+            <strong><i class="fa-solid fa-paw"></i>Tag</strong><br />
             <i class="tag">
               <i class="fa-solid fa-tag"></i>
               <%= post.tags.map(&:name).join(',') %>
@@ -31,7 +31,7 @@
     <% end %>
   </div>
   <div class="top-index">
-    <%= link_to '投稿一覧へ', posts_path %>
+    <i class="fa-solid fa-paw fa-beat"><%= link_to '投稿一覧へ', posts_path %></i>
   </div>
 </div>
 

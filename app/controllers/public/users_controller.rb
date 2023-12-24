@@ -30,12 +30,16 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update(user_params)
-    redirect_to users_mypage_path
+    if @user.update(user_params)
+      redirect_to users_mypage_path
+    else
+      flash[:alert] = "保存に失敗しました。"
+      redirect_to users_mypage_path
+    end
   end
 
   def favorites_posts
-    @favorites_posts = Post.favorites_posts(current_user, params[:page], 8)
+    @favorites_posts = Post.where(post_status: 2).favorites_posts(current_user, params[:page], 8)
   end
 
   def confirm

@@ -6,8 +6,8 @@
   </div>
   <div class="row">
     <div class="col-md-9 mx-auto">
-      <h4 id="heading">投稿一覧（公開）</h4>
-      <% unless current_user.guest_user? %>
+      <h4 id="heading"><i class="fa-solid fa-paw"></i>投稿一覧（公開）<i class="fa-solid fa-paw"></i></h4>
+      <% if current_user %>
         <%= link_to "下書き一覧", users_draft_path %> |
         <%= link_to "非公開一覧", users_inactive_path %>
       <% end %>

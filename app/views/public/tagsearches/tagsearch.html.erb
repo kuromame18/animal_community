@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5">
-      <h5 id=heading><%= @model %>検索結果 "<%= @word %>"</h5>
+      <h5 id=heading><%= @model %><i class="fa-solid fa-paw"></i>検索結果 "<%= @word %>"<i class="fa-solid fa-paw"></i></h5>
     </div>
   </div>
   <% if @posts.exists? %>
@@ -12,9 +12,9 @@
           <%= post_image(post, size = "253x200") %>
           <div class="card-body">
             <div class="card-title">
-              <strong>Title</strong><br />
+              <strong><i class="fa-solid fa-paw"></i>Title</strong><br />
               <%= post.title %><br />
-              <strong>Tag</strong><br />
+              <strong><i class="fa-solid fa-paw"></i>Tag</strong><br />
               <i class="tag"><%= post.tags.map(&:name).join(',') %></i>
               <div id="favorite_btn_<%= post.id %>" >
                 <%= render 'public/favorites/btn', post:post %>

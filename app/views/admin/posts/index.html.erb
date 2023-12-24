@@ -4,7 +4,7 @@
       <h4 id="heading">投稿一覧</h4>
       投稿数の多いタグ...
       <% @tags.each do |tag| %>
-        <%= link_to tagsearches_search_path(tag: tag.name) do %>
+        <%= link_to admin_tagsearches_search_path(tag: tag.name) do %>
           <%= tag.name %>
           <%= "(#{tag.posts.count})" %>
         <% end %>

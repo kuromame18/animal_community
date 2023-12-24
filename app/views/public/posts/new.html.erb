@@ -2,22 +2,22 @@
   <div class="row">
     <div class="col-md-5 mx-auto">
       <%= render 'layouts/error_messages', obj: @post %>
-      <h3 id="heading">新規投稿</h3>
+      <h4 id="heading"><i class="fa-solid fa-paw"></i>新規投稿<i class="fa-solid fa-paw"></i></h4>
       <%= form_with model: @post do |f| %>
         <div>
-          <%= f.label :Image %><br />
+          <i class="fa-solid fa-paw"></i><%= f.label :Image %><br />
           <%= f.file_field :post_image, accept: "image/*" %>
         </div>
         <div>
-          <%= f.label :Title %><br />
+          <i class="fa-solid fa-paw"></i><%= f.label :Title %><br />
           <%= f.text_field :title, size: 50 %>
         </div>
         <div>
-          <%= f.label :Content %><br />
+          <i class="fa-solid fa-paw"></i><%= f.label :Content %><br />
           <%= f.text_area :content, size: '50x5' %>
         </div>
         <div>
-          <%= f.label "Tag (,で区切ると複数タグ登録できます)" %>
+          <i class="fa-solid fa-paw"></i><%= f.label "Tag (,で区切ると複数タグ登録できます)" %>
           <%= f.text_field :name, value: @tag %>
         </div>
         <div class="btn-group" role="group" id="buttonGroup">
