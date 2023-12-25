@@ -25,7 +25,11 @@
 - ペットや動物に関する情報で検索したことがあった時 
 
 ## 設計書
-- 後ほど提出予定
+- テーブル定義書:https://docs.google.com/spreadsheets/d/11LSz0q8v9xMAcYECZlcZ2lntw8_c-4y-/edit?usp=sharing&ouid=103168117927818679347&rtpof=true&sd=true
+- アプリケーション詳細設計書:https://docs.google.com/spreadsheets/d/1LSqE8j4D1ZYaA5-81wU8vZhdOEsRHbfZgIpy557DKWg/edit?usp=sharing
+- ER図:https://drive.google.com/file/d/15oC_wBXJkO_vz2xCUITi_eUlghAbi-pI/view?usp=sharing
+- ワイヤーフレーム:https://drive.google.com/file/d/1jvBOCVyUkiA2T91n9EHOGtNpoX_k-G8k/view?usp=sharing
+- UIFlower:https://drive.google.com/file/d/1qB_xeHUDV2o3Mk6ITJ3iAOHggFQYMf9y/view?usp=sharing
 
 ## 開発環境
 - OS:Linux(CentOS)
