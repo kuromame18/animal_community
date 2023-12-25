@@ -52,8 +52,15 @@ class Post < ApplicationRecord
   end
 
   # 検索機能
+
+  # タグ検索
   def self.tag_search(tag)
     joins(:tags).where("tags.name LIKE ?", "%#{tag.downcase}%").order(:created_at)
+  end
+
+  # キーワード検索
+  def self.keyword_search(keyword)
+    where("title LIKE ? OR content LIKE ?", "%#{keyword}%", "%#{keyword}%")
   end
 
   # ページネーション
