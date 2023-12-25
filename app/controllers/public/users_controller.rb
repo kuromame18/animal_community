@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
   before_action :ensure_guest_user, only: [:edit]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @users = User.all.where(status: 0).page(params[:page]).per(10)
   end
@@ -64,8 +65,8 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = current_user
     if @user.guest_user?
-      notice[:alert] = "ゲストユーザーはプロフィール編集画面へ遷移できません。"
-      redirect_to user_mypage_path
+      flash[:alert] = "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+      redirect_to users_mypage_path
     end
   end
 end
