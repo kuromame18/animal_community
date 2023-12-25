@@ -32,7 +32,7 @@ class Public::PostsController < ApplicationController
       end
     else
       flash[:alert] = '投稿に失敗しました。必要事項を入力して下さい。'
-      redirect_to new_post_path
+      render :new
     end
   end
 

@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6", style="margin-left: 180px;">
+    <div class="col-8 col-md- col-lg-3 offset-2">
       <h4 id="heading"><i class="fa-solid fa-paw"></i>投稿一覧<i class="fa-solid fa-paw"></i></h4>
       <i class="fa-solid fa-tag"></i>投稿数の多いタグ...
       <% @tags.each do |tag| %>
@@ -22,9 +22,9 @@
 <div class="container">
   <div class="row">
     <% @posts.each do |post| %>
-      <div class="col-md-3 mb-4">
-        <div class="card">
-          <%= post_image(post, size = "253x200") %>
+      <div class="col-12 col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+          <%= post_image(post, size = "253x200 card-img-top img-fluid") %>
           <div class="card-body">
             <div class="card-title">
               <strong><i class="fa-solid fa-paw"></i>Title</strong><br />
@@ -43,7 +43,7 @@
     <% end %>
   </div>
   <div class="row">
-    <div class="col-md-1 mx-auto">
+    <div class="col-12">
       <div class="pagination">
         <%= paginate @posts %>
       </div>

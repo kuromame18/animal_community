@@ -35,7 +35,7 @@ class Public::UsersController < ApplicationController
       redirect_to users_mypage_path
     else
       flash[:alert] = "保存に失敗しました。"
-      redirect_to users_mypage_path
+      render :edit
     end
   end
 

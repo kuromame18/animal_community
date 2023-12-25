@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 mx-auto">
+      <%= render 'layouts/error_messages', obj: @user %>
       <h4 id=heading><i class="fa-solid fa-paw"></i>登録情報変更<i class="fa-solid fa-paw"></i></h4>
 
       <%= form_with model: @user, url: users_mypage_path do |f| %>
