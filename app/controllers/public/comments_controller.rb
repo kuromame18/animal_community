@@ -5,10 +5,8 @@ class Public::CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     comment.post_id = post.id
     if comment.save
-        redirect_to post_path(post)
     else
-        flash[:alert] = "コメントに失敗しました。"
-        redirect_to post_path(post)
+      flash[:alert] = "コメントに失敗しました。"
     end
   end
 
@@ -16,7 +14,6 @@ class Public::CommentsController < ApplicationController
     comment = Comment.find(params[:post_id])
     post = comment.post
     comment.destroy
-    redirect_to post_path(post)
   end
 
 private

@@ -4,7 +4,6 @@ class Admin::CommentsController < ApplicationController
     comment = Comment.find(params[:post_id])
     post = comment.post
     comment.destroy
-    redirect_to post_path(post)
   end
 
 private
