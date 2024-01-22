@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
       <h4 id="heading"><i class="fa-solid fa-paw"></i>新規会員登録<i class="fa-solid fa-paw"></i></h4>
 
       <%= form_with model: @user, url: user_registration_path do |f| %>
@@ -42,7 +42,7 @@
           <%= link_to "ゲストログイン（閲覧用）", public_guest_sign_in_path, method: :post %>
         </div>
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
           <p>すでに登録済みの方は、<%= render "public/shared/links" %>からログインして下さい。</p>
         </div>
       </div>
