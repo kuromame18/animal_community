@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
   def index
     @posts = Post.where(post_status: 2).page(params[:page]).per(8)
-    @tags = Tag.joins(:posts).group('tags.id').order('COUNT(tags.id) DESC').limit(8)
+    @tags = Tag.joins(:posts).group('tags.id').order('COUNT(tags.id) DESC').limit(8).merge(@posts)
   end
 
   def show
